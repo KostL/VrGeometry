@@ -673,7 +673,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7551439855714395836}
   - component: {fileID: 7551439855714395837}
-  - component: {fileID: 7551439855714395834}
   m_Layer: 0
   m_Name: Camera Offset
   m_TagString: Untagged
@@ -688,7 +687,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7551439855714395839}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -696,7 +695,7 @@ Transform:
   - {fileID: 7551439855671942660}
   m_Father: {fileID: 7551439856311754389}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &7551439855714395837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -709,86 +708,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7e3c31446c808443b698a4455caece1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedRotate: {x: 10, y: 10}
+  speedRotate: {x: 30, y: 30}
   speedMove: {x: 3, y: 3}
---- !u!114 &7551439855714395834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7551439855714395839}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 0390853168a9d8a44a7f8721db97ca20, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7551439855714395837}
-        m_TargetAssemblyTypeName: EditorMoveEmulator, Assembly-CSharp
-        m_MethodName: OnMove
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 1dd66147-280b-4255-b5fc-c0b72256e359
-    m_ActionName: EditorDebug/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7551439855714395837}
-        m_TargetAssemblyTypeName: EditorMoveEmulator, Assembly-CSharp
-        m_MethodName: OnLook
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 3f82d5c8-a23c-45d6-8f94-a0be77ef12df
-    m_ActionName: EditorDebug/Look[/Mouse/delta]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7551439855714395837}
-        m_TargetAssemblyTypeName: EditorMoveEmulator, Assembly-CSharp
-        m_MethodName: OnRatateTurnOn
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 6ca18685-f879-4687-9869-767310e59856
-    m_ActionName: EditorDebug/RotateTurnOn[/Mouse/leftButton]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Mouse&Keyboard
-  m_DefaultActionMap: EditorDebug
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!1 &7551439855861299705
 GameObject:
   m_ObjectHideFlags: 0
