@@ -15,6 +15,7 @@ public class SpawnerPrefabsList : MonoBehaviour
                 (RawImage rawImage) => rawImage.gameObject == EventSystem.current.currentSelectedGameObject);
         }
     }
+    public Color backgroundImageColor;
     private List<RawImage> imageList;
     private SnapshotCamera snapshotCamera;
     private Texture2D texture;
@@ -33,7 +34,8 @@ public class SpawnerPrefabsList : MonoBehaviour
         imageList = new List<RawImage>();
 		foreach(GameObject prefab in spawner.spawnPrefabsList){
             newImage = (RawImage)Instantiate(rawImagePrefab,transform);
-            newImage.texture = snapshotCamera.TakePrefabSnapshot(prefab);
+            newImage.texture = snapshotCamera.TakePrefabSnapshot(
+                prefab,backgroundImageColor,positionOffset:snapshotCamera.defaultPositionOffset,rotation: Quaternion.Euler(snapshotCamera.defaultRotation + prefab.transform.rotation.eulerAngles),scale:prefab.transform.localScale*2);
             newImage.gameObject.GetComponent<Button>().onClick.AddListener(onClickImage);
             //newImage.gameObject.GetComponent<Toggle>().group = toggleGroup;
             imageList.Add(newImage);

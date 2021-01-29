@@ -14,7 +14,7 @@ public class CuttingPlane : MonoBehaviour
     { 
        cutedObjectRend  = cutedObject.GetComponent<Renderer>();
        Vector3 boudSize = cutedObjectRend.bounds.size;
-       transform.localScale = new Vector3(boudSize.x+size_padding.x,transform.localScale.y,boudSize.z+size_padding.y);
+       transform.localScale = new Vector3(boudSize.y+size_padding.x,transform.localScale.y,boudSize.x+size_padding.y);
 
     }
 

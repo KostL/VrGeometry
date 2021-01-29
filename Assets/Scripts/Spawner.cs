@@ -16,7 +16,7 @@ public class Spawner : MonoBehaviour
             Destroy(curObject);
         }
         Debug.Log("Spwan"+index+" object!");
-        curObject = (GameObject)Instantiate(spawnPrefabsList[index],transform.position,transform.rotation,transform);
+        curObject = (GameObject)Instantiate(spawnPrefabsList[index],transform.position,spawnPrefabsList[index].transform.rotation,transform);
         curIndex = index;
     }
     public void ResetObject(){
