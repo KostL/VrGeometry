@@ -7,7 +7,7 @@ public class SpawnButton : MonoBehaviour
 
     // Start is called before the first frame update
     public GameObject spawnerObject;
-    public GameObject spawnlist;
+    public SpawnerPrefabsList spawnlist;
     Button button;
     Spawner spawner; 
     void Start()
@@ -17,7 +17,10 @@ public class SpawnButton : MonoBehaviour
         spawner = spawnerObject.GetComponent<Spawner>();
     }
     void OnClick(){
-        spawner.SpawnObject(0);
+        int index = spawnlist.selectedIndex;
+        if(index > -1){
+            spawner.SpawnObject(index);
+        }
     }
 
     // Update is called once per frame

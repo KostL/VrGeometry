@@ -8,7 +8,6 @@ public class MeshBlade : MonoBehaviour
     public Transform reycastStartPos;
 	public float lenght;
 	private bool activated = false;
-	public XRInteractionManager xRInteractionManager;
 	public XRBaseInteractable xRBaseInteractable;
 	private RaycastHit? _old_hit;
 	// Use this for initialization

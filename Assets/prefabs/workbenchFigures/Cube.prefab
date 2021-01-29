@@ -142,4 +142,4 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_CustomReticle: {fileID: 0}
-  rotateScale: 3
+  rotateScale: 4
