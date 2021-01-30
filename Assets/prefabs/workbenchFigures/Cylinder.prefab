@@ -128,7 +128,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_CustomReticle: {fileID: 0}
-  rotateScale: 1
+  rotateScale: 2
 --- !u!64 &6371301633062587238
 MeshCollider:
   m_ObjectHideFlags: 0
