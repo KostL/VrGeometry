@@ -6,6 +6,7 @@ public class Spawner : MonoBehaviour
 {
     // Start is called before the first frame update
     public List<GameObject> spawnPrefabsList;
+    public GameObject editPointPrefab;
     public GameObject cuttingPlanePrefab;
     private GameObject curObject;
     private List<GameObject> cuttingPlaneList;
@@ -17,6 +18,10 @@ public class Spawner : MonoBehaviour
         }
         Debug.Log("Spwan"+index+" object!");
         curObject = (GameObject)Instantiate(spawnPrefabsList[index],transform.position,spawnPrefabsList[index].transform.rotation,transform);
+        var meshEdit = curObject.GetComponent<MeshEdit>();
+        if(meshEdit != null){
+            meshEdit.editPointPrefab = editPointPrefab;
+        }
         curIndex = index;
     }
     public void ResetObject(){
@@ -26,6 +31,20 @@ public class Spawner : MonoBehaviour
             SpawnObject(curIndex);
         }
     }
+
+    public void ShowEditPoints(){
+        var meshEdit = curObject.GetComponent<MeshEdit>();
+        if(meshEdit != null){
+            meshEdit.createEditPoints();
+        }
+    }
+    public void HideEditPoints(){
+        var meshEdit = curObject.GetComponent<MeshEdit>();
+        if(meshEdit != null){
+            meshEdit.DestroyEitPoints();
+        }
+    }
+    
    public void DestroyCuttinPlanes(){
         foreach(GameObject cuttingPlane in cuttingPlaneList){
             Destroy(cuttingPlane);

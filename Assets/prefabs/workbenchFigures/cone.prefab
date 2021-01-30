@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4612498740848912272}
   - component: {fileID: 277231369673102229}
   - component: {fileID: 685794891057228618}
+  - component: {fileID: -306667248785419943}
   m_Layer: 0
   m_Name: cone
   m_TagString: Untagged
@@ -143,3 +144,18 @@ MonoBehaviour:
       m_Calls: []
   m_CustomReticle: {fileID: 0}
   rotateScale: 1
+--- !u!114 &-306667248785419943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6557838481388979781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 246ebcf5cef277c43bed67bde2c062eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vertices: []
+  isCloned: 0
+  editPointPrefab: {fileID: 0}
