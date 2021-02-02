@@ -14,6 +14,19 @@ public class MeshEdit : MonoBehaviour
     public Vector3[] vertices;
 
     [HideInInspector]
+    public List<GameObject> selectedEditPoints{
+        get{
+            List<GameObject> list = new List<GameObject>();
+                foreach(var editPoint in editPoints){
+                     if(editPoint.Key.GetComponent<Select>().isSelect){
+                         list.Add(editPoint.Key);
+                     }
+                }
+            return list;
+        }
+    }
+
+    [HideInInspector]
     public bool isCloned = false;
 
     public GameObject editPointPrefab;

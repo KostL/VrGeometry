@@ -55,6 +55,7 @@ public class Spawner : MonoBehaviour
         if(curObject != null){
         GameObject newObj = Instantiate<GameObject>(cuttingPlanePrefab,transform.position,new Quaternion(0,0,0,0),transform);
         newObj.GetComponent<CuttingPlane>().cutedObject = curObject;
+        newObj.GetComponent<CuttingPlane>().reference_points = curObject.GetComponent<MeshEdit>().selectedEditPoints;
         cuttingPlaneList.Add(newObj);
         }
     }

@@ -8,6 +8,8 @@ public class CuttingPlane : MonoBehaviour
 
     public GameObject cutedObject;
     public Vector2 size_padding = new Vector2(0.1f,0.1f);
+
+    public List<GameObject> reference_points;
     private Renderer cutedObjectRend;
     private bool isColide = true;
     void Start()
@@ -15,7 +17,17 @@ public class CuttingPlane : MonoBehaviour
        cutedObjectRend  = cutedObject.GetComponent<Renderer>();
        Vector3 boudSize = cutedObjectRend.bounds.size;
        transform.localScale = new Vector3(boudSize.y+size_padding.x,transform.localScale.y,boudSize.x+size_padding.y);
-
+        if(reference_points != null){
+            if(reference_points.Count > 1){
+                //transform.position = (reference_points[0].transform.position+reference_points[1].transform.position)/2;
+            }
+            if(reference_points.Count > 2){
+                Plane plane = new Plane(reference_points[0].transform.position,reference_points[1].transform.position,reference_points[2].transform.position);
+                //transform.position = plane.distance * plane.normal;
+                transform.position = (reference_points[0].transform.position+reference_points[1].transform.position+reference_points[2].transform.position)/3;
+                transform.up = plane.normal;
+            }
+        }
     }
 
     public void Cut(){
