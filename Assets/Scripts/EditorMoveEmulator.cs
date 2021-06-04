@@ -9,7 +9,7 @@ public class EditorMoveEmulator : MonoBehaviour
     // Start is called before the first frame update
     public Vector2 speedRotate =  new Vector2(0.5f,0.5f);
     public Vector2 speedMove =  new Vector2(2.0f,2.0f);
-
+    public float height = 1.5f;
     private Vector2 _curMoveDir;
     private Vector2 _curLookDir;
     private bool _rotateTurnedOn = false;
@@ -46,7 +46,7 @@ public class EditorMoveEmulator : MonoBehaviour
         }
         _rotateTurnedOn = _vrLessControls.EditorDebug.RotateTurnOn.ReadValue<float>() > 0;
     
-    transform.position = new Vector3(transform.position.x,1.5f,transform.position.z);
+    transform.position = new Vector3(transform.position.x,height,transform.position.z);
     transform.Translate(Vector3.forward * _curMoveDir.y*Time.deltaTime*speedMove.y);
     transform.Translate(Vector3.right * _curMoveDir.x*Time.deltaTime*speedMove.x);
     transform.localRotation = Quaternion.Euler(_curLookDir.x,_curLookDir.y,0.0f);

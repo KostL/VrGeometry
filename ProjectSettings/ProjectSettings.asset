@@ -136,6 +136,7 @@ PlayerSettings:
   - {fileID: 11400000, guid: 1f341b65ff227884c999b8746472b74a, type: 2}
   - {fileID: 11400000, guid: 5a99871543597b5478105663598436eb, type: 2}
   - {fileID: 11400000, guid: 6faaa4e843d28bf429dc49672c9fb660, type: 2}
+  - {fileID: 4417029728004266898, guid: 8f933549bb9cb144f8e849e24fa4511f, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -690,6 +691,7 @@ PlayerSettings:
   additionalIl2CppArgs: 
   scriptingRuntimeVersion: 1
   gcIncremental: 1
+  assemblyVersionValidation: 1
   gcWBarrierValidation: 0
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
@@ -738,6 +740,7 @@ PlayerSettings:
   XboxOneCapability: []
   XboxOneGameRating: {}
   XboxOneIsContentPackage: 0
+  XboxOneEnhancedXboxCompatibilityMode: 0
   XboxOneEnableGPUVariability: 1
   XboxOneSockets: {}
   XboxOneSplashScreen: {fileID: 0}

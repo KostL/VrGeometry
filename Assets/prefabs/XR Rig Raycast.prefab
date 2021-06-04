@@ -718,6 +718,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedRotate: {x: 30, y: 30}
   speedMove: {x: 3, y: 3}
+  height: 1.5
 --- !u!1 &7551439855861299705
 GameObject:
   m_ObjectHideFlags: 0
