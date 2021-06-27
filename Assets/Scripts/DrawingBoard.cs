@@ -53,7 +53,7 @@ public class DrawingBoard : MonoBehaviour
         painterColor = Enumerable.Repeat<Color32>(new Color32(255, 0, 0, 255), painterTipsWidth * painterTipsHeight).ToArray<Color32>();
     }
 
-    private void LateUpdate()
+    private void LateUpdate() //при наведении на доску записываются координаты, и в том месте рисуется
     {
         //A starting point for calculating the current brush, the color represented by
         int texPosX = (int)(paintPos.x * (float)textureWidth - (float)(painterTipsWidth / 2));
@@ -75,6 +75,7 @@ public class DrawingBoard : MonoBehaviour
                     int y = (int)Mathf.Lerp((float)lastPaintY, (float)texPosY, 1.0f/(float)(lerpCount-i));
                     
                     currentTexture.SetPixels32(x, y, painterTipsWidth, painterTipsHeight, painterColor);
+                    //между последней прорисованной точкой и текущей линейная апроксимация, так как при быстром движении руки не фиксируются точки и появл пропуски.
                 }
             }
             currentTexture.Apply();
