@@ -19,6 +19,7 @@ public class GeometyFigureController : MonoBehaviour
     public GameObject initLinePrefab; 
     public GameObject runtimeLinePrefab;
     public GameObject pointLinePrefab;
+    public GameObject vertexPrefab;
     void Start()
     {
         UpdateLines();
@@ -63,6 +64,16 @@ public class GeometyFigureController : MonoBehaviour
         int lineIndex = lines.FindIndex((Line line)=>line.prefabInstance==lineObject);
         Destroy(lines[lineIndex].prefabInstance);
         lines.RemoveAt(lineIndex);
+    }
+    public void SplitLine(GameObject lineObject){
+       var vertexCenter =  GameObject.Instantiate(vertexPrefab,transform);
+       vertexCenter.transform.localScale = vertexPrefab.transform.localScale;
+       vertexCenter.transform.position = lineObject.transform.position;
+       int lineIndex = lines.FindIndex((Line line)=>line.prefabInstance==lineObject);
+       AddLine(lines[lineIndex].vertex_1,vertexCenter.transform);
+       AddLine(vertexCenter.transform,lines[lineIndex].vertex_2);
+       Destroy(lines[lineIndex].prefabInstance);
+       lines.RemoveAt(lineIndex);
     }
     void UpdateLines(){
         foreach (var line in lines){
