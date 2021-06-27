@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: A
+  m_Text: 'A '
 --- !u!1 &1842374207105587505
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,7 +210,7 @@ Transform:
   m_GameObject: {fileID: 4602279966197815202}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 1365784153751055215}
   m_Father: {fileID: 0}
@@ -352,7 +352,7 @@ MonoBehaviour:
   interactable: {fileID: 0}
   HoverColor: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 0}
   SelectColor: {r: 0.60784316, g: 1, b: 0.2901961, a: 0}
-  ActivateColor: {r: 0, g: 0, b: 0, a: 0}
+  ActivateColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &6340386012268235912
 GameObject:
   m_ObjectHideFlags: 0

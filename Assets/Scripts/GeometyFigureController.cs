@@ -24,6 +24,19 @@ public class GeometyFigureController : MonoBehaviour
         UpdateLines();
     }
 
+    public static Vector3 GetWorldScale(Transform transform)
+    {
+        Vector3 worldScale = transform.localScale;
+        Transform parent = transform.parent;
+       
+        while (parent != null)
+        {
+            worldScale = Vector3.Scale(worldScale,parent.localScale);
+            parent = parent.parent;
+        }
+       
+        return worldScale;
+    }
     public void SetLineTrasform2points(GameObject lineObject,Vector3 point_1,Vector3 point_2){
             Vector3 linePos = (point_1 / 2) + (point_2 / 2);
             Vector3 heading = point_1 - point_2;
@@ -32,9 +45,10 @@ public class GeometyFigureController : MonoBehaviour
 
             lineObject.transform.position = linePos;
             lineObject.transform.right = direction;
-            lineObject.transform.localScale = new Vector3(distance / lineObject.transform.parent.transform.localScale.x,
-                                                          lineObject.transform.localScale.y/ lineObject.transform.parent.transform.localScale.y,
-                                                          lineObject.transform.localScale.z/ lineObject.transform.parent.transform.localScale.z);
+            var parent_world_scale = GetWorldScale(lineObject.transform.parent.transform);
+            lineObject.transform.localScale = new Vector3(distance / parent_world_scale.x,
+                                                          lineObject.transform.localScale.y/ parent_world_scale.y,
+                                                          lineObject.transform.localScale.z/ parent_world_scale.z);
     }
 
     public void AddLine(Transform vertex1, Transform vertex2){
@@ -71,14 +85,8 @@ public class GeometyFigureController : MonoBehaviour
     private GameObject curVertexHovered;
     private GameObject curLinePointer;
     private GameObject curInterator;
-     public void OnHoverEnteredVertex(XRBaseInteractor interator,GameObject vertex){
-         
-        //  Debug.Log("isVertexSelected = " + isVertexSelected);
-        //  Debug.Log("vertex != curVertexSelected = " + (vertex != curVertexSelected));
-        //  Debug.Log("curInterator == interator.gameObject = " + (curInterator == interator.gameObject));
-          Debug.Log("interator.gameObject.name = "+ interator.gameObject.name);
-        //  Debug.Log("................");
-         if(isVertexSelected && vertex != curVertexSelected && interator.gameObject.name == "RightHand Controller"){
+     public void OnHoverEnteredVertex(XRBaseInteractor interator,GameObject vertex){  //навелось на 2 вершину
+         if(isVertexSelected && vertex != curVertexSelected){
              if(curLinePointer != null){
                  Destroy(curLinePointer);
                 curLinePointer = null;
@@ -89,7 +97,7 @@ public class GeometyFigureController : MonoBehaviour
          }
 
     }
-    public void OnHoverExitedVertex(XRBaseInteractor interator,GameObject vertex){
+    public void OnHoverExitedVertex(XRBaseInteractor interator,GameObject vertex){ //отпустить курок не на вернише
         if(isVertexSelected){
             curVertexHovered = null;
          }
@@ -99,29 +107,37 @@ public class GeometyFigureController : MonoBehaviour
         }
     }
 
-    public void OnSelectEnteredVertex(XRBaseInteractor interator,GameObject vertex){
-        Debug.Log("OnSelectEnteredVertex");
-        curVertexSelected = vertex;
-         isVertexSelected = true;
-         curInterator = interator.gameObject;
-    }
-    public void OnSelectExitedVertex(XRBaseInteractor interator,GameObject vertex){
-        if(isVertexSelected && 
-        (interator.gameObject.name == "RightHand Controller"|| 
-        interator.gameObject.transform.parent.name == "RightHand Controller")){
+    public void OnSelectEnteredVertex(XRBaseInteractor interator,GameObject vertex){ //выбрать и нажать
+         if(vertex != curVertexSelected &&isVertexSelected){
             if(curLinePointer != null){
                 Destroy(curLinePointer);
                 curLinePointer = null;
             }
-            if(curVertexHovered != null){
-                AddLine(curVertexSelected.transform,curVertexHovered.transform);
-            }
+            AddLine(curVertexSelected.transform,vertex.transform);
             curVertexSelected = null;
             isVertexSelected = false;
             curVertexHovered = null;
             curInterator = null;
-            Debug.Log("OnSelectExitedVertex");
+            return;
         }
+        if(vertex == curVertexSelected && isVertexSelected){
+            curVertexSelected = null;
+            isVertexSelected = false;
+            curVertexHovered = null;
+            curInterator = null;
+            return;
+        }
+        if(isVertexSelected == false){
+            curVertexSelected = vertex;
+            isVertexSelected = true;
+            curInterator = interator.gameObject;
+
+            return;
+        }
+
+    }
+    public void OnSelectExitedVertex(XRBaseInteractor interator,GameObject vertex){
+        
 
 
     }

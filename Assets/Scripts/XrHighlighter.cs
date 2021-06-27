@@ -17,6 +17,8 @@ public class XrHighlighter : MonoBehaviour
         interactable.onHoverExited.AddListener(this.OnHoverExited);
         interactable.onSelectEntered.AddListener(this.OnSelectEntered);
         interactable.onSelectExited.AddListener(this.OnSelectExited);
+        interactable.onActivate.AddListener(this.OnActivate);
+        interactable.onDeactivate.AddListener(this.OnDeactivate);
         _renderer = GetComponent<Renderer> ();
         InitColor = _renderer.material.color;
     }
@@ -37,13 +39,13 @@ public class XrHighlighter : MonoBehaviour
         _renderer.material.color = InitColor;
     }
 
-    public void OnActivateEntered(XRBaseInteractor interator){
-     
+    public void OnActivate(XRBaseInteractor interator){
+     Debug.Log("Activate");
      if(ActivateColor != null){
          _renderer.material.color = ActivateColor;
      }
     }
-    public void OnActivateExited(XRBaseInteractor interator){
+    public void OnDeactivate(XRBaseInteractor interator){
         _renderer.material.color = InitColor;
     }
     void Start()

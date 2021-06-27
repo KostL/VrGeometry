@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 4397701235961209328}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2.2982616, y: 0.000000059604645, z: -1.5021502}
-  m_LocalScale: {x: 1, y: 0.010000001, z: 0.010000001}
+  m_LocalScale: {x: 1, y: 0.004, z: 0.004}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -110,6 +110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bba3f167b469ae468f64e1a850f8168, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactable: {fileID: 0}
+  geometyFigureController: {fileID: 0}
 --- !u!114 &8041212246261622021
 MonoBehaviour:
   m_ObjectHideFlags: 0
