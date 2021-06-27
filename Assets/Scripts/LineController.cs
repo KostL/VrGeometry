@@ -7,9 +7,12 @@ public class LineController : MonoBehaviour
 {
     public XRBaseInteractable interactable;
     public GameObject contexMenuPrefab;
+    public Transform rayCastStart;
+    public Transform rayCastEnd;
     GameObject mainCamera;
     GameObject contexMenuCur;
     public GeometyFigureController geometyFigureController;
+    private RaycastHit hitInfo;
     // Start is called before the first frame update
 
     void Awake(){
@@ -22,8 +25,29 @@ public class LineController : MonoBehaviour
         interactable = GetComponent<XRBaseInteractable>();
         interactable.onSelectEntered.AddListener(this.OnSelectEntered);
         interactable.onSelectExited.AddListener(this.OnSelectExited);
+        ChekRayCast();
     }
 
+    void ChekRayCast(){
+        Vector3 heading = (rayCastEnd.position - rayCastStart.position);
+        var distance = heading.magnitude;
+        var direction = heading / distance;
+        Ray r = new Ray(rayCastStart.position, direction);
+        if(distance < 0.05){
+            return;
+        }
+        GetComponent<Collider>().enabled = false;
+        if (Physics.Raycast(r, out hitInfo, distance-distance/5))
+        {
+            Debug.Log(hitInfo.transform.gameObject.name);
+            Debug.Log(distance);
+            Debug.Log(hitInfo.point);
+            Debug.Log(direction);
+            geometyFigureController.SplitLineIntersect(gameObject,hitInfo.transform.gameObject,hitInfo.point);
+            
+        }
+        GetComponent<Collider>().enabled = true;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -53,7 +77,7 @@ public class LineController : MonoBehaviour
 
     public void SplitLine(){
         HideContexMenu();
-        geometyFigureController.SplitLine(gameObject);
+        geometyFigureController.SplitLine(gameObject,transform.position);
         Debug.Log("Split");
     }
 

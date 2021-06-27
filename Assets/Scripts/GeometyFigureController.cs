@@ -65,10 +65,30 @@ public class GeometyFigureController : MonoBehaviour
         Destroy(lines[lineIndex].prefabInstance);
         lines.RemoveAt(lineIndex);
     }
-    public void SplitLine(GameObject lineObject){
+
+    public void SplitLineIntersect(GameObject lineObject,GameObject lineObject2, Vector3 pos){
+       var vertexCenter =  GameObject.Instantiate(vertexPrefab,transform);
+       vertexCenter.transform.position = pos;
+       vertexCenter.transform.localScale = vertexPrefab.transform.localScale;
+       int lineIndex = lines.FindIndex((Line line)=>line.prefabInstance==lineObject);
+       int lineIndex2 = lines.FindIndex((Line line)=>line.prefabInstance==lineObject2);
+       lines[lineIndex].prefabInstance.GetComponent<Collider>().enabled =false;
+       lines[lineIndex2].prefabInstance.GetComponent<Collider>().enabled =false;
+       Destroy(lines[lineIndex].prefabInstance);
+       Destroy(lines[lineIndex2].prefabInstance);
+       AddLine(lines[lineIndex].vertex_1,vertexCenter.transform);
+       AddLine(vertexCenter.transform,lines[lineIndex].vertex_2);
+       lines.RemoveAt(lineIndex);
+
+
+       AddLine(lines[lineIndex2].vertex_1,vertexCenter.transform);
+       AddLine(vertexCenter.transform,lines[lineIndex2].vertex_2);
+       lines.RemoveAt(lineIndex2);
+    }
+    public void SplitLine(GameObject lineObject, Vector3 pos){
        var vertexCenter =  GameObject.Instantiate(vertexPrefab,transform);
        vertexCenter.transform.localScale = vertexPrefab.transform.localScale;
-       vertexCenter.transform.position = lineObject.transform.position;
+       vertexCenter.transform.position = pos;
        int lineIndex = lines.FindIndex((Line line)=>line.prefabInstance==lineObject);
        AddLine(lines[lineIndex].vertex_1,vertexCenter.transform);
        AddLine(vertexCenter.transform,lines[lineIndex].vertex_2);
