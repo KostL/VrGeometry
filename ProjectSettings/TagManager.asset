@@ -7,6 +7,7 @@ TagManager:
   - VrActiveObject
   - DrawingBoard
   - GeometryLine
+  - Vertex
   layers:
   - Default
   - TransparentFX
@@ -20,8 +21,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - GeometryVertex
+  - GeometryLine
   - 
   - 
   - 

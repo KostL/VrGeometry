@@ -1,5 +1,5 @@
 {
-    "name": "MainControls",
+    "name": "VrLessControls",
     "maps": [
         {
             "name": "EditorDebug",
@@ -7,9 +7,9 @@
             "actions": [
                 {
                     "name": "Move",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "1dd66147-280b-4255-b5fc-c0b72256e359",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 },
@@ -25,6 +25,14 @@
                     "name": "RotateTurnOn",
                     "type": "Value",
                     "id": "6ca18685-f879-4687-9869-767310e59856",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Quit",
+                    "type": "Button",
+                    "id": "8b74672c-4ed4-41b0-bc9a-0f0eb5ffe782",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -105,6 +113,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "RotateTurnOn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e6cbfa72-bd12-46f0-9547-3b3074915c8c",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Quit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

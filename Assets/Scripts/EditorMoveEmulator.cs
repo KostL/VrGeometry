@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class EditorMoveEmulator : MonoBehaviour
 {
-#if UNITY_EDITOR
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
     // Start is called before the first frame update
     public Vector2 speedRotate =  new Vector2(0.5f,0.5f);
     public Vector2 speedMove =  new Vector2(2.0f,2.0f);
@@ -18,8 +18,12 @@ public class EditorMoveEmulator : MonoBehaviour
     void Awake(){
         _vrLessControls = new VrLessControls();
         _curLookDir = new Vector2(transform.localEulerAngles.x,transform.localEulerAngles.y);
+        _vrLessControls.EditorDebug.Quit.performed += Quit_performed;
     }
 
+    void Quit_performed(InputAction.CallbackContext obj){
+            Application.Quit();
+    }
     void OnEnable(){
         _vrLessControls.Enable();
     }

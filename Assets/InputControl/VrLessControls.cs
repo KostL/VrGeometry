@@ -20,9 +20,9 @@ public class @VrLessControls : IInputActionCollection, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Move"",
-                    ""type"": ""Value"",
+                    ""type"": ""Button"",
                     ""id"": ""1dd66147-280b-4255-b5fc-c0b72256e359"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 },
@@ -38,6 +38,14 @@ public class @VrLessControls : IInputActionCollection, IDisposable
                     ""name"": ""RotateTurnOn"",
                     ""type"": ""Value"",
                     ""id"": ""6ca18685-f879-4687-9869-767310e59856"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Quit"",
+                    ""type"": ""Button"",
+                    ""id"": ""8b74672c-4ed4-41b0-bc9a-0f0eb5ffe782"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -120,6 +128,17 @@ public class @VrLessControls : IInputActionCollection, IDisposable
                     ""action"": ""RotateTurnOn"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e6cbfa72-bd12-46f0-9547-3b3074915c8c"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Quit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -148,6 +167,7 @@ public class @VrLessControls : IInputActionCollection, IDisposable
         m_EditorDebug_Move = m_EditorDebug.FindAction("Move", throwIfNotFound: true);
         m_EditorDebug_Look = m_EditorDebug.FindAction("Look", throwIfNotFound: true);
         m_EditorDebug_RotateTurnOn = m_EditorDebug.FindAction("RotateTurnOn", throwIfNotFound: true);
+        m_EditorDebug_Quit = m_EditorDebug.FindAction("Quit", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -200,6 +220,7 @@ public class @VrLessControls : IInputActionCollection, IDisposable
     private readonly InputAction m_EditorDebug_Move;
     private readonly InputAction m_EditorDebug_Look;
     private readonly InputAction m_EditorDebug_RotateTurnOn;
+    private readonly InputAction m_EditorDebug_Quit;
     public struct EditorDebugActions
     {
         private @VrLessControls m_Wrapper;
@@ -207,6 +228,7 @@ public class @VrLessControls : IInputActionCollection, IDisposable
         public InputAction @Move => m_Wrapper.m_EditorDebug_Move;
         public InputAction @Look => m_Wrapper.m_EditorDebug_Look;
         public InputAction @RotateTurnOn => m_Wrapper.m_EditorDebug_RotateTurnOn;
+        public InputAction @Quit => m_Wrapper.m_EditorDebug_Quit;
         public InputActionMap Get() { return m_Wrapper.m_EditorDebug; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -225,6 +247,9 @@ public class @VrLessControls : IInputActionCollection, IDisposable
                 @RotateTurnOn.started -= m_Wrapper.m_EditorDebugActionsCallbackInterface.OnRotateTurnOn;
                 @RotateTurnOn.performed -= m_Wrapper.m_EditorDebugActionsCallbackInterface.OnRotateTurnOn;
                 @RotateTurnOn.canceled -= m_Wrapper.m_EditorDebugActionsCallbackInterface.OnRotateTurnOn;
+                @Quit.started -= m_Wrapper.m_EditorDebugActionsCallbackInterface.OnQuit;
+                @Quit.performed -= m_Wrapper.m_EditorDebugActionsCallbackInterface.OnQuit;
+                @Quit.canceled -= m_Wrapper.m_EditorDebugActionsCallbackInterface.OnQuit;
             }
             m_Wrapper.m_EditorDebugActionsCallbackInterface = instance;
             if (instance != null)
@@ -238,6 +263,9 @@ public class @VrLessControls : IInputActionCollection, IDisposable
                 @RotateTurnOn.started += instance.OnRotateTurnOn;
                 @RotateTurnOn.performed += instance.OnRotateTurnOn;
                 @RotateTurnOn.canceled += instance.OnRotateTurnOn;
+                @Quit.started += instance.OnQuit;
+                @Quit.performed += instance.OnQuit;
+                @Quit.canceled += instance.OnQuit;
             }
         }
     }
@@ -256,5 +284,6 @@ public class @VrLessControls : IInputActionCollection, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnRotateTurnOn(InputAction.CallbackContext context);
+        void OnQuit(InputAction.CallbackContext context);
     }
 }

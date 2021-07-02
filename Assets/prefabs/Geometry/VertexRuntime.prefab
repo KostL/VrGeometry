@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 1346512252219966855}
   - component: {fileID: 1346512252219966854}
   - component: {fileID: 3407719512037967071}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: VertexRuntime
-  m_TagString: Untagged
+  m_TagString: Vertex
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -170,6 +170,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactable: {fileID: 0}
-  HoverColor: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 0}
+  HoverColor: {r: 0, g: 0.6793229, b: 0.9137255, a: 0}
   SelectColor: {r: 0.60784316, g: 1, b: 0.2901961, a: 0}
   ActivateColor: {r: 1, g: 0, b: 0, a: 1}

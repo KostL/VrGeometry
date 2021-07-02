@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6724234779160921344}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: RayCastStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: -8108111937746308217}
   - component: {fileID: -4488351829652915300}
   - component: {fileID: -2281830064414214763}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: LineWhite
   m_TagString: GeometryLine
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ Transform:
   m_GameObject: {fileID: 5632079090163748309}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.133, y: 0.858, z: -0.135}
-  m_LocalScale: {x: 1, y: 0.008, z: 0.008}
+  m_LocalScale: {x: 1, y: 0.01, z: 0.01}
   m_Children:
   - {fileID: 6724234779160921344}
   - {fileID: 7200901988974825315}
@@ -234,7 +234,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7200901988974825315}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: RayCastEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -43,8 +43,15 @@ public class LineController : MonoBehaviour
             Debug.Log(distance);
             Debug.Log(hitInfo.point);
             Debug.Log(direction);
-            geometyFigureController.SplitLineIntersect(gameObject,hitInfo.transform.gameObject,hitInfo.point);
+            if (hitInfo.transform.gameObject.tag == "Vertex"){
+                geometyFigureController.SplitLineByVertex(gameObject,hitInfo.transform.gameObject);
             
+            }
+            if (hitInfo.transform.gameObject.tag == "GeometryLine"){
+                geometyFigureController.SplitLineIntersect(gameObject,hitInfo.transform.gameObject,hitInfo.point);
+            
+            }
+                    
         }
         GetComponent<Collider>().enabled = true;
     }
@@ -75,10 +82,13 @@ public class LineController : MonoBehaviour
         geometyFigureController.RemoveLine(gameObject);
     }
 
-    public void SplitLine(){
+    public void Split2Line(){
         HideContexMenu();
-        geometyFigureController.SplitLine(gameObject,transform.position);
-        Debug.Log("Split");
+        geometyFigureController.Split2Line(gameObject);
+    }
+    public void Split3Line(){
+        HideContexMenu();
+        geometyFigureController.Split3Line(gameObject);
     }
 
     public void OnSelectEntered(XRBaseInteractor interator){

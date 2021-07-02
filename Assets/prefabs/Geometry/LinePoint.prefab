@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6721717273174966232}
   - component: {fileID: 5769821129595416005}
   - component: {fileID: 8803062472835293876}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: LinePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1746020862624726874}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2.2982616, y: 0.000000059604645, z: -1.5021502}
-  m_LocalScale: {x: 1, y: 0.008, z: 0.008}
+  m_LocalScale: {x: 1, y: 0.01, z: 0.01}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0

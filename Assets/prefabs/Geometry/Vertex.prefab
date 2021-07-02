@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 940829823349913058}
   - component: {fileID: 4053012498259061621}
   - component: {fileID: 5367826493343880969}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 1071655157177196299}
   - component: {fileID: 3958564522257271764}
   - component: {fileID: 6734443435565214589}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,9 +194,9 @@ GameObject:
   - component: {fileID: 101099716}
   - component: {fileID: 101099717}
   - component: {fileID: 4460079948773599644}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Vertex
-  m_TagString: Untagged
+  m_TagString: Vertex
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -350,7 +350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactable: {fileID: 0}
-  HoverColor: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 0}
+  HoverColor: {r: 0, g: 0.6784314, b: 0.9137255, a: 0}
   SelectColor: {r: 0.60784316, g: 1, b: 0.2901961, a: 0}
   ActivateColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &6340386012268235912
@@ -364,7 +364,7 @@ GameObject:
   - component: {fileID: 3698052999057970637}
   - component: {fileID: 3618081479447066093}
   - component: {fileID: 419380489598879839}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -412,7 +412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.91764706}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
